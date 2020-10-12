@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<h3>Update details</h3>
+
+<div>
+
+<table class="table" >
+    <tr>
+        <th>NAME</th>
+        <th>MINIMUM_SALARY</th>
+        <th>MAXIMUM_SALARY</th>
+        <th>TOTAL_SALARY</th>
+        <th>AVERAGE_SALARY</th>
+        <th>EXPERIENCE</th>
+    </tr>
+    {% for data in values %}
+    <tr>
+        <td>{{data.NAME}}</td>
+        <td>{{data.MINIMUM_SALARY}}</td>
+        <td>{{data.MAXIMUM_SALARY}}</td>
+        <td>{{data.TOTAL_SALARY}}</td>
+        <td>{{data.AVERAGE_SALARY}}</td>
+        <td>{{data.EXPERIENCE}}</td>
+        <td><a href="{{url_for('editsal',id=data.ID)}}"class="btn btn-primary">Edit</a></td>
+        <td><a onclick="return confirm('Are you sure to delete?');" href="{{url_for('deleteUser',id=data.ID)}}"class="btn btn-primary">Delete</a></td>
+
+
+
+    </tr>
+
+
+    {% endfor %}
+</table>
+
+
+
+</div>
+
+</body>
+</html>

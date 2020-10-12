@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<h3>Update details</h3>
+
+<div>
+    <p><a href="{{url_for('addsalary')}}" >addsalary</a></p>
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>EMPID</th>
+        <th>SALARY</th>
+        <th>MONTH</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    {% for data in value %}
+    <tr>
+        <td>{{data.ID}}</td>
+        <td>{{data.EMPID}}</td>
+        <td>{{data.SALARY}}</td>
+        <td>{{data.MONTH}}</td>
+        <td><a href="{{url_for('editsal',id=data.ID)}}"class="btn btn-primary">Edit</a></td>
+        <td><a onclick="return confirm('Are you sure to delete?');" href="{{url_for('deleteSalary',id=data.ID)}}"class="btn btn-primary">Delete</a></td>
+
+
+
+    </tr>
+
+
+    {% endfor %}
+</table>
+
+
+
+</div>
+
+</body>
+</html>

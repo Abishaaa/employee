@@ -1,0 +1,39 @@
+<html>
+	<head>
+
+    </head>
+              <h4>
+			{% with messages = get_flashed_messages() %}
+				{% if messages %}
+					{% for message in messages %}
+						{{ message }}
+					{% endfor %}
+				{% endif %}
+			{% endwith %}
+		</h4>
+	    <table class="table table-striped table-border text-center">
+			<thead class="text-white" style="backround-color: #f2709c">
+			<tr>
+				<th>MONTH</th>
+				<th>MINIMUM_SALARY</th>
+				<th>MAXIMUM_SALARY</th>
+				<th>TOTAL_SALARY</th>
+                <th>AVERAGE_SALARY</th>
+
+			</tr>
+			</thead>
+			{% for data in maxmin %}
+				<tr>
+					<td>{{data.MONTH}}</td>
+					<td>{{data.MINIMUM_SALARY}}</td>
+					<td>{{data.MAXIMUM_SALARY}}</td>
+					<td>{{data.TOTAL_SALARY}}</td>
+					<td>{{data.AVERAGE_SALARY}}</td>
+					<td><a href="{{url_for('sal',id=data.ID)}}">salary Detail</a></td>
+
+					{% endfor %}
+		</table>
+
+
+	</body>
+</html>
